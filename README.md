@@ -3,7 +3,8 @@
 
 - Use sensor DHT22
 - Raspberry Pi 3 Model B
-- 
+- Use database InfluxDB
+- Grafana for visualisation data from InfluxDB
 
 ## Requirements to run code
 ```
