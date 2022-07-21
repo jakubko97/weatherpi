@@ -48,7 +48,6 @@ Run the following two commands to enable InfluxDB to start at boot on your Raspb
 ```
 sudo systemctl unmask influxdb
 sudo systemctl enable influxdb
-
 ```
 
 And now start up the InfluxDB server.
@@ -89,7 +88,7 @@ Install Grafana:
 
 ```
 sudo apt-get update
-sudo apt-get install -y grafana```
+sudo apt-get install -y grafana
 ```
 
 
