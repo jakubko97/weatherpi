@@ -91,7 +91,7 @@ Start the Grafana server:
 sudo /bin/systemctl start grafana-server
 ```
 
-Open a browser and go to http://<ip address>:3000
+Open a browser and go to http://localhost:3000
 Log in to Grafana with the default username admin, and the default password admin.
 
 ## References
