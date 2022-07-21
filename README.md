@@ -54,7 +54,22 @@ sudo systemctl enable influxdb
 And now start up the InfluxDB server.
 ```
 sudo systemctl start influxdb
+```
 
+We should now be able to run the influx client with influx and create a user for later (here I use a single admin user grafana for simplicity):
+
+```
+create database home
+use home
+
+create user grafana with password '<passwordhere>' with all privileges
+grant all privileges on home to grafana
+
+show users
+
+user admin
+---- -----
+grafana true
 ```
 
 ### Install Grafana
@@ -94,6 +109,14 @@ sudo /bin/systemctl start grafana-server
 Open a browser and go to http://localhost:3000
 Log in to Grafana with the default username admin, and the default password admin.
 
+Next add Influx as a Grafana data source
+
+![adddatasource](https://user-images.githubusercontent.com/45421791/180199017-589021c2-5884-4f4a-8de0-bd08ab5696d9.png)
+
+We then need to add the database, user and password that we set.
+
+![influxdbdetatil](https://user-images.githubusercontent.com/45421791/180199162-2a5b1591-5de8-4406-b062-5111db2f5621.png)
+
 ![grafana](https://user-images.githubusercontent.com/45421791/180198262-1adfb8f8-a4a9-4177-ac01-da083de61ef1.png)
 
 ## References
@@ -103,5 +126,7 @@ https://fahadahammed.com/raspberrypi-with-dht22-sensor-for-humidity-and-temperat
 https://medium.com/initial-state/how-to-build-a-raspberry-pi-temperature-monitor-8c2f70acaea9
 
 https://simonhearne.com/2020/pi-metrics-influx/
+
+https://simonhearne.com/2020/pi-influx-grafana/
 
 https://grafana.com/tutorials/install-grafana-on-raspberry-pi/
