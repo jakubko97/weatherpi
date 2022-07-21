@@ -116,7 +116,7 @@ We then need to add the database, user and password that we set.
 
 ![influxdbdetatil](https://user-images.githubusercontent.com/45421791/180199162-2a5b1591-5de8-4406-b062-5111db2f5621.png)
 
-For visualization we need to create new dashboard where we can set custom select query for our table. We can select the date range or visualization type (we use Time Series for our measurement). Our visualization looks like this.
+For visualization we need to create new dashboard where we can set custom select query for our table. Beside the query we can select the date range or visualization type (we use Time Series for our measurement). Our visualization looks like this.
 
 ![grafana](https://user-images.githubusercontent.com/45421791/180198262-1adfb8f8-a4a9-4177-ac01-da083de61ef1.png)
 
