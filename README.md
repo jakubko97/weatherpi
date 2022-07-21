@@ -57,8 +57,49 @@ sudo systemctl start influxdb
 
 ```
 
+### Install Grafana
+
+Add the APT key used to authenticate packages:
+
+```
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+```
+Add the Grafana APT repository:
+
+```
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+```
+
+Install Grafana:
+
+```
+sudo apt-get update
+sudo apt-get install -y grafana```
+```
+
+
+Enable the Grafana server:
+
+```
+sudo /bin/systemctl enable grafana-server
+```
+
+Start the Grafana server:
+
+
+```
+sudo /bin/systemctl start grafana-server
+```
+
+Open a browser and go to http://<ip address>:3000
+Log in to Grafana with the default username admin, and the default password admin.
+
 ## References
 
 https://fahadahammed.com/raspberrypi-with-dht22-sensor-for-humidity-and-temperature-data-with-influxdb/
+
 https://medium.com/initial-state/how-to-build-a-raspberry-pi-temperature-monitor-8c2f70acaea9
+
 https://simonhearne.com/2020/pi-metrics-influx/
+
+https://grafana.com/tutorials/install-grafana-on-raspberry-pi/
