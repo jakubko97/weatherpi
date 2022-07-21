@@ -19,7 +19,7 @@ sudo python3 -m pip install --upgrade pip setuptools wheel
 sudo pip3 install Adafruit_DHT
 ```
 
-Install influxDB
+### Install influxDB
 
 Add the InfluxDB repository key to our Raspberry Pi
 ```
