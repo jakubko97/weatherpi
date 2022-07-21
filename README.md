@@ -120,6 +120,12 @@ For visualization we need to create new dashboard where we can set custom select
 
 ![grafana](https://user-images.githubusercontent.com/45421791/180198262-1adfb8f8-a4a9-4177-ac01-da083de61ef1.png)
 
+Our select query looks like this.
+
+![selectQuery](https://user-images.githubusercontent.com/45421791/180200801-e3c70473-4221-4483-8f25-510b011c42fc.png)
+
+Just as simple as it looks!
+
 ## References
 
 https://fahadahammed.com/raspberrypi-with-dht22-sensor-for-humidity-and-temperature-data-with-influxdb/
