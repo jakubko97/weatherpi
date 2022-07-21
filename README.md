@@ -120,11 +120,11 @@ For visualization we need to create new dashboard where we can set custom select
 
 ![grafana](https://user-images.githubusercontent.com/45421791/180198262-1adfb8f8-a4a9-4177-ac01-da083de61ef1.png)
 
-Our select query looks like this.
+We have temerature, humidity and location as our parameters. Our select query looks like this. 
 
 ![selectQuery](https://user-images.githubusercontent.com/45421791/180200801-e3c70473-4221-4483-8f25-510b011c42fc.png)
 
-Just as simple as it looks!
+Just as simple as it looks! Good look and have a nice day!
 
 ## References
 
