@@ -94,6 +94,8 @@ sudo /bin/systemctl start grafana-server
 Open a browser and go to http://localhost:3000
 Log in to Grafana with the default username admin, and the default password admin.
 
+![grafana](https://user-images.githubusercontent.com/45421791/180198262-1adfb8f8-a4a9-4177-ac01-da083de61ef1.png)
+
 ## References
 
 https://fahadahammed.com/raspberrypi-with-dht22-sensor-for-humidity-and-temperature-data-with-influxdb/
