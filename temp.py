@@ -13,11 +13,11 @@ from email. mime. text import MIMEText
 from email. header import Header
 
 # --------- User Settings ---------
-SENSOR_LOCATION_NAME = "In backyard"
+SENSOR_LOCATION_NAME = "Pujd"
 BUCKET_NAME = ":partly_sunny: Room Temperatures"
 BUCKET_KEY = "dht22sensor"
 ACCESS_KEY = "1892"
-MINUTES_BETWEEN_READS = 5
+MINUTES_BETWEEN_READS = 3
 METRIC_UNITS = True
 # ---------------------------------
 
@@ -39,8 +39,7 @@ def send_email(value):
  
     subj = 'Temperature alert'
  
-    msg = 'Sensor measured temperature ' + value + ' celsius.'
- 
+    msg = 'Sensor measured temperature ' + value + ' celsius.' 
     try:
          mime = MIMEText (msg, 'plain', 'utf -8')
          mime ['From'] = frm
@@ -96,8 +95,8 @@ while True:
 
     # write the measurement
     ifclient.write_points(body)
-    if(alert == False and float(temperature) >= 45.5):
-        send_email(temperature)
-        alert = True
+    # if(alert == False and float(temperature) > 37):
+    #     send_email(temperature)
+    #     alert = True
 
     t.sleep(60*MINUTES_BETWEEN_READS)
