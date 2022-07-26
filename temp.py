@@ -12,6 +12,9 @@ from email. mime. text import MIMEText
  
 from email. header import Header
 
+# API
+import requests
+
 # --------- User Settings ---------
 SENSOR_LOCATION_NAME = "Pujd"
 BUCKET_NAME = ":partly_sunny: Room Temperatures"
@@ -29,17 +32,21 @@ ifhost = "127.0.0.1"
 ifport = 8086
 measurement_name = "temperature"
 
+# api requests config
+CITY_NAME = "Vechec"
+API_KEY = "5eb96e32258e453ea80164526222507"
+
 sensor = 22
 gpio = 4
 
-def send_email(value):
+def send_email(value, apiValue):
     frm = 'j5jancik@gmail.com'
  
     to = 'j4jancik@gmail.com'
  
     subj = 'Temperature alert'
  
-    msg = 'Sensor measured temperature ' + value + ' celsius.' 
+    msg = 'Sensor measured temperature ' + value + ' celsius, but weather.com has ' + str(apiValue)
     try:
          mime = MIMEText (msg, 'plain', 'utf -8')
          mime ['From'] = frm
@@ -74,6 +81,10 @@ while True:
 
     print("Humidity(%)", humidity)
 
+    response = requests.get('http://api.weatherapi.com/v1/current.json?key='+ API_KEY + '&q=' + CITY_NAME + '&aqi=no')
+    print(response.json())
+    apiTemp = response.json()['current']['temp_c']
+    weatherIcon = response.json()['current']['condition']['icon']
 
     # take a timestamp for this measurement
     time = datetime.datetime.utcnow()
@@ -86,7 +97,8 @@ while True:
         "fields": {
             "temperature": float(temperature),
             "humidity": float(humidity),
-            "location": SENSOR_LOCATION_NAME
+            "location": SENSOR_LOCATION_NAME,
+            "icon": weatherIcon
         }
     }
     ]
@@ -95,8 +107,8 @@ while True:
 
     # write the measurement
     ifclient.write_points(body)
-    # if(alert == False and float(temperature) > 37):
-    #     send_email(temperature)
-    #     alert = True
+    if(alert == False and float(temperature) > float(apiTemp)):
+        send_email(temperature, apiTemp)
+        alert = True
 
     t.sleep(60*MINUTES_BETWEEN_READS)
